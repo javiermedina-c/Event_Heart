@@ -1,4 +1,4 @@
-import 'package:event_heart/fechas_heart/widgets/header_date_group.dart';
+import './widgets/header_date_group.dart';
 import 'package:flutter/material.dart';
 import './widgets/date_event.dart';
 import './widgets/divider_date.dart';
