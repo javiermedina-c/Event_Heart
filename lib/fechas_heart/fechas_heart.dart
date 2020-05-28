@@ -1,28 +1,34 @@
+import 'package:event_heart/fechas_heart/widgets/header_date_group.dart';
 import 'package:flutter/material.dart';
 import './widgets/date_event.dart';
 import './widgets/divider_date.dart';
+import './widgets/group_selected.dart';
+import './widgets/description_group.dart';
 
 class FechasHeart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF1A1A1A),
-     appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0.0,
-            centerTitle: true,
-            title: Image.asset('assets/images/EH.png',width:32),
-            leading: Padding(
-              padding: const EdgeInsets.only(left:40.0),
-              child: Icon(Icons.format_align_left),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        centerTitle: true,
+        title: Image.asset('assets/images/EH.png', width: 32),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 40.0),
+          child: Icon(Icons.format_align_left),
+        ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 40.0),
+            child: Icon(
+              Icons.info,
+              color: Color(0xFFF8F8F8),
             ),
-            actions: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(right:40.0),
-                child: Icon(Icons.info, color: Color(0xFFF8F8F8),),
-              )
-            ],
-          ),
+          )
+        ],
+      ),
       extendBodyBehindAppBar: true,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,40 +46,18 @@ class FechasHeart extends StatelessWidget {
                   ),
                 ),
               ),
+              Positioned(
+                  left: 40,
+                  top: 120,
+                  child: Container(
+                    child: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    ),
+                  )),
               SafeArea(
                 child: Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      SizedBox(height: 64),
-                      Text(
-                        'Panic!\nAt the disco',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 33,
-                            fontWeight: FontWeight.w900),
-                      ),
-                      SizedBox(height: 48),
-                      Text(
-                        'CONCIERTO',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w900),
-                      ),
-                      Text(
-                        'Monterrey NL',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color(0xFFE21F35),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w900),
-                      ),
-                    ],
-                  ),
+                  child: HeaderDateEvent(),
                 ),
               ),
               Positioned(
@@ -91,59 +75,29 @@ class FechasHeart extends StatelessWidget {
             ],
           ),
           SizedBox(height: 16),
-          DateEvent(),
-          SizedBox(height: 24),
-          DividerDate(),
-          SizedBox(height: 24),
-          DateEvent(),
-          SizedBox(height: 24),
-          DividerDate(),
-                                  SizedBox(height:32),
-          Center(
-              child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ClipOval(
-                  child: Image.asset(
-                'assets/images/Panic-At-The-Disco-400x360.png',
-                width: 40,
-                height: 40,
-                fit: BoxFit.fill,
-              )),
-                        SizedBox(width:16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Panic!',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900),
-                  ),
-                  Text(
-                    'At the disco',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900),
-                  ),
-                ],
-              )
-            ],
-          )),
-          SizedBox(height:40),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal:24.0),
-            child: Text(
-              'Es un grupo estadounidense de rock formado en Las Vegas en 2004 por Ryan Ross y Spencer Smith. Tras varios cambios en su formación, desde 2015 está integrado únicamente por el cantante Brendon Urie, a quien en las giras acompañan Nicole Row en bajo, Mike Naran en guitarra y Dan Pawlovich en batería.',
-              textAlign: TextAlign.justify,
-              style: TextStyle(
-                  color: Colors.white, fontSize: 8, fontWeight: FontWeight.w900),
-            ),
+          DateEvent(
+            dateEvent: '15',
+            monthEvent: 'SEP',
+            dateHourEvent: 'SABADO 6:00PM',
+            groupEvent: 'Panic! at the disco',
+            locationEvent: 'Parque Fundidora - Monterrey, NL',
           ),
+          SizedBox(height: 24),
+          DividerDate(),
+          SizedBox(height: 24),
+          DateEvent(
+            dateEvent: '17',
+            monthEvent: 'SEP',
+            dateHourEvent: 'SABADO 6:00PM',
+            groupEvent: 'Panic! at the disco',
+            locationEvent: 'Auditorio Pabellón Ma - Monterrey, NL',
+          ),
+          SizedBox(height: 24),
+          DividerDate(),
+          SizedBox(height: 32),
+          Center(child: GroupSelected()),
+          SizedBox(height: 40),
+          DescriptionGroup(),
         ],
       ),
     );

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DateEvent extends StatelessWidget {
+  final String monthEvent;
+  final String dateEvent;
+  final String dateHourEvent;
+  final String groupEvent;
+  final String locationEvent;
+  DateEvent({this.dateEvent,this.dateHourEvent,this.groupEvent,this.locationEvent,this.monthEvent});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,7 +17,7 @@ class DateEvent extends StatelessWidget {
           Column(
             children: <Widget>[
               Text(
-                'SEP',
+                this.monthEvent,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
@@ -19,7 +25,7 @@ class DateEvent extends StatelessWidget {
                     fontWeight: FontWeight.w900),
               ),
               Text(
-                '15',
+                this.dateEvent,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
@@ -33,7 +39,7 @@ class DateEvent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'SABADO 6:00PM',
+                this.dateHourEvent,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Color(0xFFE21F35),
@@ -41,7 +47,7 @@ class DateEvent extends StatelessWidget {
                     fontWeight: FontWeight.w900),
               ),
               Text(
-                'Panic! at the disco',
+                this.groupEvent,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
@@ -49,7 +55,7 @@ class DateEvent extends StatelessWidget {
                     fontWeight: FontWeight.w900),
               ),
               Text(
-                'Parque Fundidora - Monterrey, NL',
+                this.locationEvent,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
