@@ -1,7 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import './principl_heart/principal_heart.dart';
-import './fechas_heart/fechas_heart.dart';
+import './city_heart/city_heart.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home:FechasHeart(),
+      home:CityHeart(),
     );
   }
 }

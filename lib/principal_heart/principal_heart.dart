@@ -1,6 +1,8 @@
 import './widgets/header_date_group.dart';
 import 'package:flutter/material.dart';
 import './widgets/next_event.dart';
+import '../fechas_heart/fechas_heart.dart';
+import '../eventos_heart/eventos_heart.dart';
 
 class PrincipalHeart extends StatelessWidget {
   @override
@@ -46,10 +48,15 @@ class PrincipalHeart extends StatelessWidget {
               Positioned(
                   left: 40,
                   top: 120,
-                  child: Container(
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
                     ),
                   )),
               SafeArea(
@@ -68,35 +75,57 @@ class PrincipalHeart extends StatelessWidget {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(16))),
                             child: Center(
-                              child: Text(
-                                'ver fechas',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w800),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => FechasHeart()),
+                                  );
+                                },
+                                child: Text(
+                                  'ver fechas',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w800),
+                                ),
                               ),
                             ),
                           ),
                           SizedBox(width: 8),
-                          Container(
-                            height: 30,
-                            width: 96,
-                            decoration: BoxDecoration(
-                                color: Color(0xFFFFFFFF),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16))),
-                            child: Center(
-                              child: Text(
-                                'boletos',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w800),
+                          Padding(
+                            padding: const EdgeInsets.only(right:16.0),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => EventosHeart()),
+                                );
+                              },
+                              child: Container(
+                                height: 30,
+                                width: 96,
+                                decoration: BoxDecoration(
+                                    color: Color(0xFFFFFFFF),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(16))),
+                                child: Center(
+                                  child: Text(
+                                    'boletos',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w800),
+                                  ),
+                                ),
                               ),
                             ),
-                          )
+                          ),
+                          // Container(child: Icon(Icons.share,color: Colors.white,),)
                         ],
                       )
                     ],
@@ -144,21 +173,49 @@ class PrincipalHeart extends StatelessWidget {
             height: 168,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: <Widget>[NextEvent(), NextEvent(), NextEvent()],
+              children: <Widget>[
+                NextEvent(
+                    assetImageEvent:
+                        'assets/images/hanny-naibaho-aWXVxy8BSzc-unsplash.jpg',
+                    dateEvent: 'junio 2020',
+                    titleEvent: 'Music Fest',
+                    colorBackground: Color(0xFF350938)),
+                NextEvent(
+                    assetImageEvent:
+                        'assets/images/arian-darvishi-wh-RPfR_3_M-unsplash.jpg',
+                    dateEvent: 'Security',
+                    titleEvent: 'agosto 2020',
+                    colorBackground: Color(0xFF380914)),
+                NextEvent(
+                    assetImageEvent:
+                        'assets/images/braden-collum-9HI8UJMSdZA-unsplash.jpg',
+                    dateEvent: 'septiembre 2020',
+                    titleEvent: 'Runner',
+                    colorBackground: Color(0xFF160938)),
+              ],
             ),
           ),
-          SizedBox(height:32),
+          SizedBox(height: 16),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal:24.0),
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
-                    'Eventos pasados',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w900),
-                  ),
+              'Eventos pasados',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w900),
+            ),
           ),
+          SizedBox(height: 16),
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Image.asset(
+                'assets/images/alex-kotliarskyi-QBpZGqEMsKg-unsplash.png',
+                height: 160,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              )),
         ],
       ),
     );

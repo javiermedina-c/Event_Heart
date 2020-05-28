@@ -1,3 +1,4 @@
+import '../principal_heart/principal_heart.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -52,23 +53,33 @@ class CityHeart extends StatelessWidget {
             ),
             SizedBox(height: 40),
             InkWell(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'buscar evento',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  SizedBox(width: 8),
-                  Icon(
-                    FontAwesomeIcons.arrowRight,
-                    color: Color(0xFFFB0512),
-                    size: 18,
-                  )
-                ],
+              onTap: (){
+                Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => PrincipalHeart()),
+  );
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      'buscar evento',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    SizedBox(width: 8),
+                    Icon(
+                      FontAwesomeIcons.arrowRight,
+                      color: Color(0xFFFB0512),
+                      size: 18,
+                    )
+                  ],
+                ),
               ),
             )
           ],

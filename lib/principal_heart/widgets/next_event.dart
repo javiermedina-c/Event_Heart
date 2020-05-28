@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 class NextEvent extends StatelessWidget {
+  final String assetImageEvent;
+  final String titleEvent;
+  final String dateEvent;
+  final Color colorBackground;
+  NextEvent({this.assetImageEvent,this.dateEvent,this.titleEvent,this.colorBackground});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -9,7 +14,7 @@ class NextEvent extends StatelessWidget {
         height: 160,
         width: 112,
         decoration: BoxDecoration(
-            color: Color(0xFF350938),
+            color: colorBackground,
             borderRadius: BorderRadius.all(Radius.circular(16))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -17,7 +22,7 @@ class NextEvent extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.asset(
-                'assets/images/hanny-naibaho-aWXVxy8BSzc-unsplash.jpg',
+                this.assetImageEvent,
                 height: 112,
                 width: 112,
                 fit: BoxFit.cover,
@@ -26,7 +31,7 @@ class NextEvent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 4.0, left: 12),
               child: Text(
-                'Music Fest',
+               this.titleEvent,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
@@ -37,7 +42,7 @@ class NextEvent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 4.0, left: 12),
               child: Text(
-                'junio 2020',
+               this.dateEvent,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,

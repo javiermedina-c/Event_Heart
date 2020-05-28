@@ -49,10 +49,15 @@ class FechasHeart extends StatelessWidget {
               Positioned(
                   left: 40,
                   top: 120,
-                  child: Container(
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                                      child: Container(
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
                     ),
                   )),
               SafeArea(
