@@ -80,23 +80,25 @@ class MyEvent extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Color(0xFF161616),
-                          fontSize: 10,
+                          fontSize: 11,
                           fontWeight: FontWeight.w900),
                     ),
+                    SizedBox(width: 4),
                     Text(
                       this.groupEvent,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 10,
+                          fontSize: 11,
                           fontWeight: FontWeight.w900),
                     ),
+                    SizedBox(width: 4),
                     Text(
                       this.locationEvent,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 10,
+                          fontSize: 11,
                           fontWeight: FontWeight.w900),
                     ),
                   ],
